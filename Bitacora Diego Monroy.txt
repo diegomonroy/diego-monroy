@@ -11,3 +11,23 @@ Bitacora Diego Monroy.txt NV ->
 /landing/
 
 ----------------------------------------------------------------------------------------------------
+
+/landing/src/components/
+
+home.astro ( Modificado NV )
+logoWall.astro ( Modificado NV )
+projects.astro ( Modificado NV )
+
+----------------------------------------------------------------------------------------------------
+
+/landing/src/layouts/
+
+Layout.astro ( Modificado NV )
+
+----------------------------------------------------------------------------------------------------
+
+/landing/src/React/
+
+SkillsList.tsx ( Modificado NV )
+
+----------------------------------------------------------------------------------------------------
