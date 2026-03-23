@@ -68,13 +68,13 @@ const SkillsList = () => {
 	const skills = {
 		"Desarrollo Web (Frontend)": [
 			"Lenguajes Core: HTML5, CSS3, JavaScript, TypeScript.",
-			"Frameworks y Librerías: jQuery, Astro, Vue, React, Next.js.",
 			"Estilos y Diseño: Bootstrap, Foundation, TailwindCSS.",
+			"Frameworks y Librerías: jQuery, Astro, Vue, React, Next.js.",
 		],
 		"Desarrollo Web (Backend)": [
 			"Lenguajes y Entornos: PHP, Python, Node.js.",
 			"Frameworks: Laravel, Django.",
-			"Bases de Datos: MySQL.",
+			"Bases de Datos: MySQL, PostgreSQL, Supabase.",
 			"Gestión de Contenidos (CMS): Joomla, WordPress, Shopify.",
 		],
 		"Desarrollo Móvil": [
