@@ -4,7 +4,7 @@ import SkillsList from "../React/SkillsList.tsx";
 import LetterGlitch from "../React/LetterGlitch.tsx";
 ---
 
-<section class="text-[var(--white)] mt-12 md:mt-0" id="home">
+<section id="home" class="text-[var(--white)] mt-12 md:mt-0">
 	<div class="max-w-5xl mx-auto space-y-8 md:py-36 pb-14">
 		<div class="text-left space-y-4">
 			<p class="text-md md:text-lg text-[var(--white-icon)] shiny-white">
@@ -72,14 +72,6 @@ import LetterGlitch from "../React/LetterGlitch.tsx";
 </section>
 
 <style is:global>
-	.shiny-sec {
-		background: linear-gradient(135deg, #a476ff 25%, #eee5ff 50%, #a476ff 75%);
-		-webkit-background-clip: text;
-		background-clip: text;
-		background-size: 400% 100%;
-		color: transparent;
-		animation: shine 3s linear infinite;
-	}
 	@keyframes shine {
 		0% {
 			background-position: 100% 50%;
@@ -88,5 +80,13 @@ import LetterGlitch from "../React/LetterGlitch.tsx";
 		70% {
 			background-position: 0% 50%;
 		}
+	}
+	.shiny-sec {
+		background: linear-gradient(135deg, #a476ff 25%, #eee5ff 50%, #a476ff 75%);
+		-webkit-background-clip: text;
+		background-clip: text;
+		background-size: 400% 100%;
+		color: transparent;
+		animation: shine 3s linear infinite;
 	}
 </style>

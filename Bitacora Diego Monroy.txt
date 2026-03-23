@@ -14,8 +14,11 @@ Bitacora Diego Monroy.txt NV ->
 
 /landing/src/components/
 
+contact.astro ( Modificado NV )
+footer.astro ( Modificado NV )
 home.astro ( Modificado NV )
 logoWall.astro ( Modificado NV )
+nav.astro ( Modificado NV )
 projects.astro ( Modificado NV )
 
 ----------------------------------------------------------------------------------------------------
@@ -23,6 +26,18 @@ projects.astro ( Modificado NV )
 /landing/src/layouts/
 
 Layout.astro ( Modificado NV )
+
+----------------------------------------------------------------------------------------------------
+
+/landing/src/pages/
+
+index.astro ( Modificado NV )
+
+----------------------------------------------------------------------------------------------------
+
+/landing/src/api/
+
+contact.ts ( Modificado NV )
 
 ----------------------------------------------------------------------------------------------------
 
