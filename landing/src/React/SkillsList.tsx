@@ -63,9 +63,37 @@ const CategoryIcons = {
 	),
 };
 
-const SkillsList = () => {
+const SkillsList = ({ lang = "es" }: { lang?: string }) => {
 	const [openItem, setOpenItem] = useState<string | null>(null);
-	const skills = {
+	const isEn = lang === "en";
+	const skills = isEn ? {
+		"Web Development (Frontend)": [
+			"Core Languages: HTML5, CSS3, JavaScript, TypeScript.",
+			"Styling and Design: Bootstrap, Foundation, TailwindCSS.",
+			"Frameworks & Libraries: jQuery, Astro, Vue, React, Next.js.",
+		],
+		"Web Development (Backend)": [
+			"Languages and Environments: PHP, Python, Node.js.",
+			"Frameworks: Laravel, Django.",
+			"Databases: MySQL, PostgreSQL, Supabase.",
+			"Content Management Systems (CMS): Joomla, WordPress, Shopify.",
+		],
+		"Mobile Development": [
+			"Hybrid / Cross-platform Applications: Ionic.",
+		],
+		"Desktop Development": [
+			"Native Applications: Electron.",
+		],
+		"Infrastructure and Deployment": [
+			"Servers and Cloud: AWS, DigitalOcean.",
+			"Rapid Deployment Platforms: Cloudflare, Netlify, Railway, Vercel.",
+		],
+		"Tools": [
+			"Systems and Console: Bash.",
+			"Version Control: Git.",
+			"AI: Claude, Gemini.",
+		],
+	} : {
 		"Desarrollo Web (Frontend)": [
 			"Lenguajes Core: HTML5, CSS3, JavaScript, TypeScript.",
 			"Estilos y Diseño: Bootstrap, Foundation, TailwindCSS.",
@@ -93,13 +121,27 @@ const SkillsList = () => {
 			"IA: Claude, Gemini.",
 		],
 	};
+	const getIconKey = (category: string) => {
+		if (isEn) {
+			const map: Record<string, keyof typeof CategoryIcons> = {
+				"Web Development (Frontend)": "Desarrollo Web (Frontend)",
+				"Web Development (Backend)": "Desarrollo Web (Backend)",
+				"Mobile Development": "Desarrollo Móvil",
+				"Desktop Development": "Desarrollo de Escritorio",
+				"Infrastructure and Deployment": "Infraestructura y Despliegue",
+				"Tools": "Herramientas",
+			};
+			return map[category] || category;
+		}
+		return category as keyof typeof CategoryIcons;
+	};
 	const toggleItem = (item: string) => {
 		setOpenItem(openItem === item ? null : item);
 	};
 	return (
 		<div className="text-left py-8">
 			<h3 className="text-[var(--white)] text-3xl md:text-4xl font-semibold md:mb-6">
-				¿Qué hago?
+				{isEn ? "What I do?" : "¿Qué hago?"}
 			</h3>
 			<ul className="space-y-4 mt-4 text-lg">
 				{Object.entries(skills).map(([category, items]) => (
@@ -109,7 +151,7 @@ const SkillsList = () => {
 							className="md:w-[400px] w-full bg-[#1414149c] rounded-2xl text-left hover:bg-opacity-80 transition-all border border-[var(--white-icon-tr)] cursor-pointer overflow-hidden"
 						>
 							<div className="flex items-center gap-3 p-4">
-								{CategoryIcons[category]}
+								{CategoryIcons[getIconKey(category) as keyof typeof CategoryIcons]}
 								<div className="flex items-center gap-2 flex-grow justify-between">
 									<div className="min-w-0 max-w-[200px] md:max-w-none overflow-hidden">
 										<span className="block truncate text-[var(--white)] text-lg">

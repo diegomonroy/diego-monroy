@@ -4,3 +4,15 @@
 
 [build.environment]
   NODE_VERSION = "20" # Se recomienda para compatibilidad con las últimas versiones de Astro
+
+# Security headers for all routes
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.web3forms.com https://firebaseinstallations.googleapis.com https://firestore.googleapis.com; frame-ancestors 'none';"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"

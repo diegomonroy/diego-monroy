@@ -1,14 +1,18 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import LogoWall from "../components/logoWall.astro";
 import SkillsList from "../React/SkillsList.tsx";
 import LetterGlitch from "../React/LetterGlitch.tsx";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="home" class="text-[var(--white)] mt-12 md:mt-0">
 	<div class="max-w-5xl mx-auto space-y-8 md:py-36 pb-14">
 		<div class="text-left space-y-4">
 			<p class="text-md md:text-lg text-[var(--white-icon)] shiny-white">
-				Hola, soy Diego Monroy
+				{t('home.hello')}
 			</p>
 			<div class="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-8 md:gap-4">
 				<h1 class="text-[var(--white)] text-5xl md:text-6xl font-medium text-pretty leading-none">
@@ -16,7 +20,7 @@ import LetterGlitch from "../React/LetterGlitch.tsx";
 					Developer
 				</h1>
 				<p class="text-md md:text-2xl text-[var(--white-icon)]">
-					Transformando ideas en experiencias digitales interactivas y fluidas a través de un desarrollo <span class="text-[var(--sec)] shiny-sec">Full Stack</span> de vanguardia.
+					{t('home.desc')} <span class="text-[var(--sec)] shiny-sec">Full Stack</span> {lang === 'es' ? 'de vanguardia.' : 'development.'}
 				</p>
 			</div>
 		</div>
@@ -57,13 +61,13 @@ import LetterGlitch from "../React/LetterGlitch.tsx";
 	</div>
 	<LogoWall />
 	<div class="flex flex-col lg:flex-row items-center gap-8">
-		<SkillsList client:load />
+		<SkillsList client:load lang={lang} />
 		<div class="flex flex-col w-full max-w-[450px] md:max-w-none md:w-full pt-3 md:pt-9 md:ml-16 gap-6">
 			<div class="w-full text-left">
-				<h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Acerca de mí</h2>
+				<h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">{t('home.about.title')}</h2>
 				<h3 class="text-4xl md:text-5xl font-medium text-[var(--white)] mb-6">Diego Monroy</h3>
 				<p class="text-[var(--white-icon)] text-base md:text-lg">
-					Soy un desarrollador Full Stack con más de 15 años de experiencia creando soluciones web integrales. Domino el ciclo de vida completo del software -frontend, backend y cloud- para transformar requerimientos complejos en plataformas digitales eficientes, escalables y de alto rendimiento.
+					{t('home.about.desc')}
 				</p>
 			</div>
 			<div class="flex justify-center w-full md:h-[232px] h-[230px]">

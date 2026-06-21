@@ -1,0 +1,23 @@
+---
+import { getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+---
+
+<div class="fixed top-6 right-6 md:right-12 z-[200] bg-[#1414149c] border border-[var(--white-icon-tr)] backdrop-blur-md px-3 py-1.5 rounded-full flex items-center gap-3 text-sm md:text-base font-medium transition-all shadow-lg">
+	<a 
+		href="/" 
+		class={`transition-colors duration-300 ${lang === 'es' ? 'text-[var(--sec)] font-bold' : 'text-[var(--white-icon)] hover:text-white'}`}
+		aria-label="Cambiar a Español"
+	>
+		ES
+	</a>
+	<span class="text-[var(--white-icon-tr)] select-none">|</span>
+	<a 
+		href="/en" 
+		class={`transition-colors duration-300 ${lang === 'en' ? 'text-[var(--sec)] font-bold' : 'text-[var(--white-icon)] hover:text-white'}`}
+		aria-label="Switch to English"
+	>
+		EN
+	</a>
+</div>
